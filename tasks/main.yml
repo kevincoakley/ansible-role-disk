@@ -1,2 +1,15 @@
 ---
-# tasks file for ansible-role-disk
+- name: Configure block device partitions
+  include: parted.yml
+
+- name: Configure LVM volume groups
+  include: lvg.yml
+
+- name: Configure LVM logical volumes
+  include: lvol.yml
+
+- name: Makes a filesystem
+  include: filesystem.yml
+
+- name: Control active and configured mount points
+  include: mount.yml

@@ -1,2 +1,6 @@
 ---
-# defaults file for ansible-role-disk
+filesystem: []
+lvg: []
+lvol: []
+mount: []
+parted: []
