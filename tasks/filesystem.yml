@@ -1,3 +1,4 @@
+---
 - name: Makes a filesystem
   filesystem:
     dev: '{{ item.dev }}'

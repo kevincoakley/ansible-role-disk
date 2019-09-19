@@ -1,3 +1,4 @@
+---
 - name: Control active and configured mount points
   mount:
     fstype: '{{ item.fstype }}'
