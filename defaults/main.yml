@@ -1,6 +1,6 @@
 ---
-filesystem: []
-lvg: []
-lvol: []
-mount: []
-parted: []
+filesystem: {}
+lvg: {}
+lvol: {}
+mount: {}
+parted: {}
