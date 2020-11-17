@@ -2,7 +2,7 @@
 galaxy_info:
   role_name: disk
   author: Kevin Coakley
-  description: Partition, Manage LVM, Format and Mount Disks for CentOS 7 and Ubuntu 18.04
+  description: Partition, Manage LVM, Format and Mount Disks for CentOS 7 & 8 and Ubuntu 18.04 & 20.04
 
   # If the issue tracker for your role is not on github, uncomment the
   # next line and provide a value
