@@ -1,9 +1,9 @@
 ansible-role-disk
 =================
 
-[![Build Status](https://travis-ci.org/kevincoakley/ansible-role-disk.svg?branch=master)](https://travis-ci.org/kevincoakley/ansible-role-disk)
+![](https://github.com/kevincoakley/ansible-role-disk/workflows/Molecule%20Test/badge.svg)
 
-Partition, Manage LVM, Format and Mount Disks for CentOS 7 and Ubuntu 18.04
+Partition, Manage LVM, Format and Mount Disks for CentOS 7, 8 and Ubuntu 18.04, 20.04
 
 Requirements
 ------------
