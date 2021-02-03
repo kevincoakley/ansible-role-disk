@@ -11,7 +11,7 @@
   loop: '{{ mdadm|flatten(levels=1) }}'
 
 - name: Create array(s)
-  command: "mdadm -v --create /dev/{{ item.name }} --metadata={{ item.metadata | default (1.2) }} --level={{ item.level }} --raid-devices={{ item.devices|count }} {{ item.devices| join (' ') }}"
+  command: "mdadm -v --create /dev/{{ item.name }} --metadata={{ item.metadata | default (1.2) }} --level={{ item.level }} --raid-devices={{ item.devices|count }} {{ item.devices| join (' ') }}"  # noqa 204
   loop: '{{ mdadm|flatten(levels=1) }}'
   loop_control:
     index_var: index
