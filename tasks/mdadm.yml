@@ -2,7 +2,7 @@
 - name: Install mdadm
   apt:
     name: 'mdadm'
-    update_cache: yes
+    update_cache: true
 
 - name: Check status of array(s)
   stat:
@@ -37,4 +37,3 @@
     group: root
     mode: 0644
   notify: update initramfs
-
