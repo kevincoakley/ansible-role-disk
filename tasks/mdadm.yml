@@ -1,0 +1,40 @@
+---
+- name: Install mdadm
+  apt:
+    name: 'mdadm'
+    update_cache: yes
+
+- name: Check status of array(s)
+  stat:
+    path: '/dev/{{ item.name }}'
+  register: mdadm_check
+  loop: '{{ mdadm|flatten(levels=1) }}'
+
+- name: Create array(s)
+  command: "mdadm -v --create /dev/{{ item.name }} --metadata={{ item.metadata | default (1.2) }} --level={{ item.level }} --raid-devices={{ item.devices|count }} {{ item.devices| join (' ') }}"
+  loop: '{{ mdadm|flatten(levels=1) }}'
+  loop_control:
+    index_var: index
+  when: not mdadm_check.results[index].stat.exists
+  notify: update initramfs
+
+- name: Scan array details
+  command: 'mdadm --detail --scan'
+  register: mdadm_scan
+  changed_when: false
+
+- name: Ensure mdadm conf path exists
+  file:
+    path: '{{ mdadm_conf_path }}'
+    state: directory
+    mode: 0755
+
+- name: Deploy mdadm config
+  template:
+    src: mdadm.conf.j2
+    dest: '{{ mdadm_conf }}'
+    owner: root
+    group: root
+    mode: 0644
+  notify: update initramfs
+

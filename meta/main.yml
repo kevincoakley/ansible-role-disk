@@ -37,5 +37,6 @@ galaxy_info:
     - partition
     - format
     - lvm
+    - mdadm
 
 dependencies: []

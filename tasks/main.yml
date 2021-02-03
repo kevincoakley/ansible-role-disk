@@ -3,6 +3,10 @@
   include: parted.yml
   when: parted is defined and parted|count > 0
 
+- name: Configure mdadm arrays
+  include_tasks: mdadm.yml
+  when: mdadm is defined and mdadm|count > 0
+
 - name: Configure LVM volume groups
   include: lvg.yml
   when: lvg is defined and lvg|count > 0

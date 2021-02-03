@@ -2,5 +2,10 @@
 filesystem: {}
 lvg: {}
 lvol: {}
+mdadm: {}
 mount: {}
 parted: {}
+
+mdadm_alert_email: root
+mdadm_conf_path: '/etc/mdadm'
+mdadm_conf: '{{ mdadm_conf_path }}/mdadm.conf'
