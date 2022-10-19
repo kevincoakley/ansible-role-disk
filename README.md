@@ -3,7 +3,7 @@ ansible-role-disk
 
 ![](https://github.com/kevincoakley/ansible-role-disk/workflows/Molecule%20Test/badge.svg)
 
-Partition, Manage mdadm, Manage LVM, Format and Mount Disks for CentOS 7, 8 and Ubuntu 18.04, 20.04
+Partition, Manage mdadm, Manage LVM, Format and Mount Disks for EL 7, 8, 9 and Ubuntu 18.04, 20.04, 22.04
 
 Requirements
 ------------

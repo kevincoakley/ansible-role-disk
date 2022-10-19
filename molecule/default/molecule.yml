@@ -6,14 +6,15 @@ driver:
 lint: |
   set -e
   yamllint -c molecule/yaml-lint.yml .
-  ansible-lint
+  ansible-lint -c molecule/ansible-lint.yml .
   flake8
 platforms:
   - name: instance
-    image: "geerlingguy/docker-${MOLECULE_DISTRO:-centos7}-ansible:latest"
+    image: "geerlingguy/docker-${MOLECULE_DISTRO:-rockylinux8}-ansible:latest"
     command: ${MOLECULE_DOCKER_COMMAND:-""}
     volumes:
-      - /sys/fs/cgroup:/sys/fs/cgroup:ro
+      - /sys/fs/cgroup:/sys/fs/cgroup:rw
+    cgroupns_mode: host
     privileged: true
     pre_build_image: true
 provisioner:
@@ -22,7 +23,7 @@ provisioner:
   options:
     vvv: false
   playbooks:
-    converge: converge.yml
+    converge: ${MOLECULE_PLAYBOOK:-converge.yml}
 scenario:
   name: default
 verifier:
