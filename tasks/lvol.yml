@@ -1,10 +1,9 @@
 ---
 - name: Configure LVM logical volumes
-  lvol:
-    lv: '{{ item.lv }}'
-    vg: '{{ item.vg }}'
+  community.general.lvol:
     active: '{{ item.active | default(omit) }}'
     force: '{{ item.force | default(omit) }}'
+    lv: '{{ item.lv }}'
     opts: '{{ item.opts | default(omit) }}'
     pvs: '{{ item.opts | default(omit) }}'
     resizefs: '{{ item.resizefs | default(omit) }}'
@@ -13,4 +12,5 @@
     snapshot: '{{ item.snapshot | default(omit) }}'
     state: '{{ item.state | default(omit) }}'
     thinpool: '{{ item.thinpool | default(omit) }}'
+    vg: '{{ item.vg }}'
   with_items: '{{ lvol }}'
