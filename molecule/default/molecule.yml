@@ -24,6 +24,8 @@ provisioner:
     vvv: false
   playbooks:
     converge: ${MOLECULE_PLAYBOOK:-converge.yml}
+  env:
+    ANSIBLE_ROLES_PATH: "../../../"
 scenario:
   name: default
 verifier:
